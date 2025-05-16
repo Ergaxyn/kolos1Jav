@@ -40,7 +40,7 @@ public class Main
         reader.readLine();
         while ((line = reader.readLine()) != null) {
         }
-        
+
 
     }
 
