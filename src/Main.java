@@ -3,24 +3,36 @@ import java.util.*;
 
 public class Main
 {
-    public class Class1 {
+    public static class Class1 {
         public String name;
         public int age;
+
+        @Override
+        public String toString() {
+            return  "Class1{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
+        }
     }
 
     public static void main(String[] args) throws IOException {
-        //reading class value from HashMap
-        HashMap<String, Class1> map = new HashMap<>();
+        //odczytywanie wartości klasy z HashMap
+        Map<String, Class1> map = new HashMap<>();
+        Class1 class1 = new Class1();
+        class1.name = "josh";
+        class1.age = 15;
+        map.put("key", class1);
         Class1 c = map.get("key");
+        System.out.println(c);
 
-        // basic scanner class implementation/usage
+        //pobieranie wartości od użytkownika
         Scanner scan = new Scanner(System.in);
-        System.out.println("sth");
-        String firstName = scan.nextLine();
-        System.out.println("Witaj" + firstName);
+        String Name = scan.nextLine();
+        int age = scan.nextInt();
+        System.out.println(age + " " + Name);
 
-
-        //type "sout" and hit tab
+        //wpisz "sout" i wciśnij tab
         System.out.println();
 
         //foreach (do przechodzenia po listach i innych zbiorach)
@@ -29,23 +41,32 @@ public class Main
         items.add("item2");
         items.add("item3");
         for (String item : items) {
-            System.out.println(item);
+            //instrukcje która wykona się dla każdej pozycji na liście
         }
 
         //odczyt plików
+        String path = "./file.txt";
+        BufferedReader reader = new BufferedReader(new FileReader(path));
+        //kontynuacja odczytu pliku
+        // |
+        // V
 
+        //odczytanie całego pliku linia po linii
+        String line;
+        reader.readLine();
+        while ((line = reader.readLine()) != null) {
+            //instrukcje jeśli linia jest pobrana
+        }
 
-            String path = "./file.txt";
-            BufferedReader reader = new BufferedReader(new FileReader(path));
-            //odczytanie całego pliku linia po linii
-            String line;
-            reader.readLine();
-            while ((line = reader.readLine()) != null) {
-            }
-
+        //odczyt ze zmniennej String
+        String longLine = "hello,goodbye,yes";
+        String hello = longLine.split(",")[0];
+        String goodbye = longLine.split(",")[1];
+        String yes = longLine.split(",")[2];
+        System.out.println(hello + " " + goodbye + " " + yes);
     }
 
-    //pisanie w pliku
+    //zapisywanie do pliku
     public void FileWriter()
     {
         File file = new File("out.txt");
@@ -60,7 +81,7 @@ public class Main
         }
     }
     // StringBuilder
-   public void StringBuilder()
+    public void StringBuilder()
     {
         File file = new File("in.txt");
         StringBuilder result = new StringBuilder();
